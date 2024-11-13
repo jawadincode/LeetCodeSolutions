@@ -1,13 +1,19 @@
 void main(List<String> args) {
-  print(lengthOfLongestSubstring('abcabcbb'));
+  print(lengthOfLongestSubstring('asjdhbbxnnwj2bbx'));
 }
 
 int lengthOfLongestSubstring(String s) {
-  String longestSubString = '';
-  int leftIndex = -1, currentIndex = 0;
-  for (int i = 0; i < s.length; i++) {
-    currentIndex += 1;
-    for (int j = 0; j < longestSubString.length; j++) {}
+  var input = s;
+  Set<String> subString = {};
+  int maxLengthSubString = 0;
+  for (var i = 0; i < input.length; i++) {
+    while (subString.contains(input[i])) {
+      subString.remove(subString.first);
+    }
+    subString.add(input[i]);
+    if (subString.length > maxLengthSubString) {
+      maxLengthSubString = subString.length;
+    }
   }
-  return longestSubString.length;
+  return maxLengthSubString;
 }
